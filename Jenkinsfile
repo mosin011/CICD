@@ -1,29 +1,29 @@
 pipeline {
-    agent any
+agent any
 
-    stages {
-        stage('Checkout') {
-            steps {
-                echo 'Code checked out successfully'
-            }
-        }
+```
+stages {
 
-        stage('Build') {
-            steps {
-                echo 'Building application'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running tests'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deployment completed'
-            }
+    stage('Build Docker Image') {
+        steps {
+            sh 'docker build -t cicd-webapp .'
         }
     }
+
+    stage('Deploy') {
+        steps {
+            sh '''
+            docker stop cicd-webapp2 || true
+            docker rm cicd-webapp2 || true
+
+            docker run -d \
+            -p 8081:80 \
+            --name cicd-webapp2 \
+            cicd-webapp
+            '''
+        }
+    }
+}
+```
+
 }
