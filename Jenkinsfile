@@ -36,11 +36,3 @@ pipeline {
         }
     }
 }
-:::
-
-### Fix it
-
-Open:
-
-```cmd
-notepad Jenkinsfile
