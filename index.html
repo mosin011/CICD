@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Portal</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Employee Management Portal</h1>
+</header>
+
+<section class="container">
+
+    <h2>Add Employee</h2>
+
+    <div class="form">
+        <input type="text" id="name" placeholder="Employee Name">
+        <input type="text" id="department" placeholder="Department">
+
+        <button onclick="addEmployee()">
+            Add Employee
+        </button>
+    </div>
+
+    <h2>Employee List</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+
+        <tbody id="employeeTable">
+
+        </tbody>
+    </table>
+
+</section>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
