@@ -4,13 +4,19 @@ agent any
 ```
 stages {
 
+    stage('Checkout') {
+        steps {
+            checkout scm
+        }
+    }
+
     stage('Build Docker Image') {
         steps {
             sh 'docker build -t cicd-webapp .'
         }
     }
 
-    stage('Deploy') {
+    stage('Deploy Container') {
         steps {
             sh '''
             docker stop cicd-webapp2 || true
